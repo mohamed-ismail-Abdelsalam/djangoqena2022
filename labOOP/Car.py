@@ -12,7 +12,7 @@ class Car:
         if (newfuelRate>0 and newfuelRate<=100):
             self.__fuelRate = newfuelRate
         else:
-            print('invalid healthRate')
+            print('invalid fuelRate')
 
     @property
     def Velocity(self):

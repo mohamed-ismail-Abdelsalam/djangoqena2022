@@ -7,6 +7,7 @@ class Office:
     def __init__(self, name, employees):
         self.name = name
         self.employees = employees
+
         Office.change_emps_num(len(self.employees))
 
     def get_all_employees(self):

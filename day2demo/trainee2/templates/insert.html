@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{%extends 'base.html'%}
+{%block title%}
+Insert trainee
+{%endblock%}
+{%block content%}
+<h1>{#{{id|add:4}}#}
+asd\n asd</h1>
+
+    <form method="post" action="/Trainee/insert">
+        {% csrf_token %}
+        <label>Name</label>
+        <input type="text" name="name" value="">
+        </br>
+         <label>Branch</label>
+        <input type="number" name="Branch" value="">
+        </br>
+         <label>Course</label>
+            <select name="course">
+                {%for c in courses%}
+                <option value="{{c.id}}">{{c.name}}</option>
+                {%endfor%}
+
+            </select>
+
+            <input type="submit" name="insert" value="Insert"/>
+    </form>
+{%endblock%}

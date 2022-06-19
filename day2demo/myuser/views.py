@@ -10,10 +10,11 @@ class Loginclass(View):
     def get(self,request):
         return render(request,'myuser/login.html')
     def post(self,request):
+        print('in login class')
         loggeduser = Myuser.objects.filter(username=request.POST['exampleInputusername'],
                                            password=request.POST['exampleInputPassword'])
-        authuser=authenticate(request.POST['exampleInputusername'],
-                                           request.POST['exampleInputPassword'])
+        authuser=authenticate(username=request.POST['exampleInputusername'],
+                                           password=request.POST['exampleInputPassword'])
         print(authuser,'====')
         print(loggeduser[0].username,'---')
         if (len(loggeduser) != 0 and authuser is not None):
@@ -22,7 +23,7 @@ class Loginclass(View):
             request.session['username'] = loggeduser[0].username
             print(request.session['username'])
             #return render(request, 'index.html')
-            return HttpResponseRedirect('/admin/')
+            return HttpResponseRedirect('/admin/login/')
         else:
             return HttpResponseRedirect('/Login/')
 

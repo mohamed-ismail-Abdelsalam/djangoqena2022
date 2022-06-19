@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>Home</h1>
+<h2>welcome {{username}}</h2>
+<table border="1" width="100%">
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>branch</td>
+        <td>course</td>
+
+    </tr>
+    {%for trainee in trainees%}
+        <tr>
+            <td>{{trainee.id}}</td>
+            <td>{{trainee.name}}</td>
+            <td>{{trainee.branch}}</td>
+            <td>{{trainee.courses.name}}</td>
+            <td><a href="{{ url 'Deletetrainee' trainee.id}}">delet</a></td>
+        </tr>
+    {%endfor%}
+</table>
+
+</body>
+</html>
